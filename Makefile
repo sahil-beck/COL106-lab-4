@@ -1,6 +1,6 @@
 all:
-	javac maxMST.java
-	java maxMST
+	javac DriverCode1.java
+	java DriverCode1
 
 clean:
-	rm maxMST.class
+	rm DriverCode1.class
