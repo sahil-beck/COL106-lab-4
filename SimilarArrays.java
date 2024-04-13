@@ -32,7 +32,7 @@ public class SimilarArrays {
 
     // public int minSteps(int[] A, int[] target) {
     //     if (A.length != target.length) return -1;
-    //     int dec = 0, inc = 0;
+    //     int decreaseCount = 0, increaseCount = 0;
     //     boolean taken[] = new boolean[A.length];
     //     sort(0, A.length - 1, A);
     //     sort(0, A.length - 1, target);
@@ -42,19 +42,22 @@ public class SimilarArrays {
     //         k = j;
     //         while (k < A.length && (taken[k] || Math.abs(A[i] - target[k]) % 2 != 0)) k++;
     //         if (k == A.length) return -1;
-    //         if (A[i] < target[k]) inc += (target[k] - A[i]) / 2;
-    //         else dec += (A[i] - target[k]) / 2;
+    //         if (A[i] < target[k]) increaseCount += (target[k] - A[i]) / 2;
+    //         else decreaseCount += (A[i] - target[k]) / 2;
     //         taken[k] = true;
     //     }
-    //     if (dec != inc) return -1;
-    //     return dec;
+    //     if (decreaseCount != increaseCount) return -1;
+    //     return decreaseCount;
     // }
 
+    // operations, A[i] += 2 & A[i] -= 2
     // simpler approach
     public int minSteps(int[] A, int[] target) {
         if (A.length != target.length) return -1;
-        int dec = 0, inc = 0;
+        int decreaseCount = 0, increaseCount = 0;
+        // dividing A & target to even & odd, since oparations change A[i]'s value by a multiple of 2
         Vector<Integer> evenA = new Vector<>(), oddA = new Vector<>(), evenTarget = new Vector<>(), oddTarget = new Vector<>();
+        // sorting because we want to minimize operation count, we try to achieve target value colsest to A[i] for each A[i]
         sort(0, A.length - 1, A);
         sort(0, A.length - 1, target);
         for (int i = 0; i < A.length; i++) {
@@ -65,14 +68,14 @@ public class SimilarArrays {
         }
         if (evenA.size() != evenTarget.size()) return -1;
         for (int i = 0; i < evenA.size(); i++) {
-            if (evenA.get(i) > evenTarget.get(i)) dec += (evenA.get(i) - evenTarget.get(i)) / 2;
-            else inc += (evenTarget.get(i) - evenA.get(i)) / 2;
+            if (evenA.get(i) > evenTarget.get(i)) decreaseCount += (evenA.get(i) - evenTarget.get(i)) / 2;
+            else increaseCount += (evenTarget.get(i) - evenA.get(i)) / 2;
         }
         for (int i = 0; i < oddA.size(); i++) {
-            if (oddA.get(i) > oddTarget.get(i)) dec += (oddA.get(i) - oddTarget.get(i)) / 2;
-            else inc += (oddTarget.get(i) - oddA.get(i)) / 2;
+            if (oddA.get(i) > oddTarget.get(i)) decreaseCount += (oddA.get(i) - oddTarget.get(i)) / 2;
+            else increaseCount += (oddTarget.get(i) - oddA.get(i)) / 2;
         }
-        if (dec != inc) return -1;
-        return dec;
+        if (decreaseCount != increaseCount) return -1;
+        return decreaseCount;
     }
 }

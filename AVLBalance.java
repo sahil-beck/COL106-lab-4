@@ -1,3 +1,6 @@
+// resources
+// https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.geeksforgeeks.org/introduction-to-avl-tree/&ved=2ahUKEwijm7HDnr6FAxV3umMGHZgSC50QFnoECBsQAQ&usg=AOvVaw08UiZBssk1kA1AuLlD7JpH
+// https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://en.wikipedia.org/wiki/AVL_tree&ved=2ahUKEwijm7HDnr6FAxV3umMGHZgSC50QmhN6BAhUEAI&usg=AOvVaw3JaiHvdngI_EKc62WdMVLi
 import java.util.*;
 
 class Node { 

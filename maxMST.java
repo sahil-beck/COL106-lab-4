@@ -1,3 +1,6 @@
+// resources
+// https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.geeksforgeeks.org/2-3-4-tree/&ved=2ahUKEwj9pa2yiryFAxWSoGMGHYOtAQsQFnoECAYQAQ&usg=AOvVaw0-ZQ2ZdKHDuYAVr36VlesL
+// https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://en.wikipedia.org/wiki/2%25E2%2580%25933%25E2%2580%25934_tree&ved=2ahUKEwj9pa2yiryFAxWSoGMGHYOtAQsQFnoECBgQAQ&usg=AOvVaw3cin9xIHTbtt2R30cFfzFG
 import java.util.*;
 
 public class maxMST {
@@ -28,6 +31,7 @@ public class maxMST {
 
     // sum, max_, min_, has no useful info for it's parents if current node or it's childrens are not valid
     private toReturn fun (Node node) {
+        // all the cases are just checking if the properties of 2-4 tree are being held
         toReturn ans = isSorted(node.keys);
         int sum = ans.int_, childMax = 0;
         // in a valid MST subtree we can't have empty node, or node with more than 3 keys
@@ -54,23 +58,23 @@ public class maxMST {
     }
 
     // for debugging
-    private void outputToReturn (toReturn node) {
-        System.out.println(node.bool_ + " " + node.int_ + " " + node.min_ + " " + node.max_);
-    }
+    // private void outputToReturn (toReturn node) {
+    //     System.out.println(node.bool_ + " " + node.int_ + " " + node.min_ + " " + node.max_);
+    // }
 
-    private void outputVector (Vector<Integer> vec) {
-        for (int i = 0; i < vec.size(); i++) System.out.print(vec.get(i) + " ");
-        System.out.println();
-    }
+    // private void outputVector (Vector<Integer> vec) {
+    //     for (int i = 0; i < vec.size(); i++) System.out.print(vec.get(i) + " ");
+    //     System.out.println();
+    // }
 
-    public void outputMST(Node node){
-        for (int i = 0; i < node.children.size(); i++) {
-            outputVector(node.keys);
-            outputVector(node.children.get(i).keys);
-            System.out.println();
-            outputMST(node.children.get(i));
-        }
-    }
+    // public void outputMST(Node node){
+    //     for (int i = 0; i < node.children.size(); i++) {
+    //         outputVector(node.keys);
+    //         outputVector(node.children.get(i).keys);
+    //         System.out.println();
+    //         outputMST(node.children.get(i));
+    //     }
+    // }
 
     public static void main(String args[]){
 
